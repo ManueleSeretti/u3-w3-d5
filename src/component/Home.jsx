@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setAlbum } from "../redux/action";
 import ListAlbums from "./ListAlbums";
+import Player from "./Player";
 
 const Home = () => {
   let rockArtists = ["queen", "u2", "thepolice", "eagles", "thedoors", "oasis", "thewho", "bonjovi"];
@@ -75,6 +76,7 @@ const Home = () => {
       <ListAlbums title="Rock Classic" />
       <ListAlbums title="Pop Culture" />
       <ListAlbums title="#HipHop" />
+      <Player />
     </Container>
   );
 };

@@ -14,19 +14,19 @@ const ListAlbums = (props) => {
   }
 
   return (
-    <Container className="mt-5">
-      <h2 className=" text-start text-secondary ">{props.title}</h2>
+    <Container className="mt-3  mb-5 ">
+      <h2 className=" text-start text-white ">{props.title}</h2>
       <Row>
         {albums.map((album, i) => (
           <Col xs={3} key={album.id}>
-            <Card>
-              <Card.Img variant="top" src={album.album.cover_medium} />
+            <Card className="bg-transparent border-none">
+              <Card.Img variant="top" src={album.album.cover} />
               <Card.Body>
                 <Link to={"/album/" + album.album.id}>
-                  <Card.Title className="text-truncate text-start text-secondary">{album.album.title}</Card.Title>
+                  <Card.Title className="text-truncate text-start text-white">{album.album.title}</Card.Title>
                 </Link>
                 <Link to={"/artist/" + album.artist.id}>
-                  <Card.Text className="text-truncate text-start text-secondary">{album.artist.name}</Card.Text>
+                  <Card.Text className="text-truncate text-start text-white">{album.artist.name}</Card.Text>
                 </Link>
               </Card.Body>
             </Card>

@@ -12,12 +12,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Container fluid className="p-0 m-0">
+        <Container fluid className=" p-0 m-0">
           <Row>
-            <Col xs={2}>
+            <Col xs={2} className="bg-black p-0 m-0">
               <NavBar />
             </Col>
-            <Col xs={10}>
+            <Col xs={10} className="sfondo container-rigth m-0">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/album/:id" element={<AlbumsPage />} />
