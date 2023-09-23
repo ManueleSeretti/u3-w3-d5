@@ -1,11 +1,15 @@
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import { setSearch } from "../redux/action";
 import { useEffect } from "react";
+import Player from "./Player";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import LinkComponent from "./LinkComponent";
 
 const SearchPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
+  const query = useSelector((state) => state.search.content);
 
   const fetchSearch = async (artistName) => {
     try {
@@ -28,8 +32,33 @@ const SearchPage = () => {
   };
   useEffect(() => {
     fetchSearch(params.query);
-  }, []);
+  }, [params.query]);
 
-  return;
+  return (
+    <Container>
+      <LinkComponent />
+
+      <Row className="mb-5">
+        <h2 className="text-white text-start fw-bold mt-3">Result</h2>
+        {query.data.map((song) => (
+          <Col xs={4} key={song.id}>
+            <Card className="bg-transparent border-none">
+              <Card.Img variant="top" src={song.album.cover} />
+              <Card.Body>
+                <Link to={"/album/" + song.album.id}>
+                  <Card.Title className="text-truncate text-start text-white">{song.title}</Card.Title>
+                </Link>
+                <Link>
+                  <Card.Text className="text-truncate text-start text-white">{song.album.title}</Card.Text>
+                </Link>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+
+      <Player />
+    </Container>
+  );
 };
 export default SearchPage;
