@@ -1,7 +1,7 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import LinkComponent from "./LinkComponent";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAlbum } from "../redux/action";
 import ListAlbums from "./ListAlbums";
 import Player from "./Player";

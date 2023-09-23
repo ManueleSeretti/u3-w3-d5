@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { setSingleAlbum } from "../redux/action";
 import LinkComponent from "./LinkComponent";
+import Player from "./Player";
 
 const AlbumsPage = () => {
   const params = useParams();
@@ -39,12 +40,13 @@ const AlbumsPage = () => {
         <Col xs={8}>
           {singleAlbum.tracks.data.map((track) => (
             <div className="d-flex justify-content-between align-items-center mt-3">
-              <p className="m-0">{track.title}</p>
-              <span>{(track.duration / 60).toFixed(2)}</span>
+              <p className="text-white m-0">{track.title}</p>
+              <span className="text-white">{(track.duration / 60).toFixed(2)}</span>
             </div>
           ))}
         </Col>
       </Row>
+      <Player />
     </Container>
   );
 };

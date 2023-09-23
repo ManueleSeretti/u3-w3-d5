@@ -5,6 +5,7 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 import homeReducer from "../reducer/homeReducer";
 import albumReducer from "../reducer/AlbumReducer";
 import artistReducer from "../reducer/ArtistReducer";
+import searchReducer from "../reducer/SearchReducer";
 
 const persistConfig = {
   key: "root",
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   home: homeReducer,
   album: albumReducer,
   artist: artistReducer,
+  search: searchReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
