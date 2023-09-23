@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { setSingleAlbum } from "../redux/action";
@@ -35,7 +35,11 @@ const AlbumsPage = () => {
       <Row className="mt-5">
         <Col xs={4}>
           <img src={singleAlbum.cover_medium} alt="cover" />
-          <h2>{singleAlbum.title}</h2>
+          <h2 className="text-white">{singleAlbum.title}</h2>
+          <p className="text-white"> {singleAlbum.artist.name}</p>
+          <Button className="btn-play" variant="success">
+            Play
+          </Button>
         </Col>
         <Col xs={8}>
           {singleAlbum.tracks.data.map((track) => (
