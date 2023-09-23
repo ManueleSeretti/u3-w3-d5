@@ -19,7 +19,7 @@ const ListAlbums = (props) => {
       <Row>
         {albums.map((album, i) => (
           <Col xs={3} key={album.id}>
-            <Card className="bg-transparent border-none">
+            <Card className="bg-transparent border-0 ">
               <Card.Img variant="top" src={album.album.cover} />
               <Card.Body>
                 <Link to={"/album/" + album.album.id}>

@@ -44,41 +44,43 @@ const ArtistPage = () => {
 
   return (
     <Container>
-      <LinkComponent />
-      <Row className="justify-content-center mt-5">
-        <Col xs={5}>
-          <h1 className="text-white">{artist.name}</h1>
-          <span className="text-white">{artist.nb_fan} follower</span>
-          <div className="mt-3">
-            <Button className="main-btn mx-2" variant="success">
-              Play
-            </Button>
-            <Button className="main-btn mx-2" variant="outline-light">
-              Follow
-            </Button>
-          </div>
+      <Row>
+        <Col xs={10} className="offset-1">
+          <LinkComponent />
+          <Row className="justify-content-center mt-5">
+            <Col xs={5}>
+              <h1 className="text-white">{artist.name}</h1>
+              <span className="text-white">{artist.nb_fan} follower</span>
+              <div className="mt-3">
+                <Button className="main-btn mx-2" variant="success">
+                  Play
+                </Button>
+                <Button className="main-btn mx-2" variant="outline-light">
+                  Follow
+                </Button>
+              </div>
+            </Col>
+          </Row>
+          <Row className="my-5 gy-5">
+            <h2 className="text-white text-start fw-bold mt-3">Tracks</h2>
+            {tracks.map((song) => (
+              <Col xs={3} key={song.id}>
+                <Card className="bg-transparent border-none">
+                  <Card.Img variant="top" src={song.album.cover} />
+                  <Card.Body>
+                    <Link to={"/album/" + song.album.id}>
+                      <Card.Title className="text-truncate text-start text-white">{song.title}</Card.Title>
+                    </Link>
+                    <Link>
+                      <Card.Text className="text-truncate text-start text-white">{song.album.title}</Card.Text>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
         </Col>
       </Row>
-      <Row className="mb-5">
-        {" "}
-        <h2 className="text-white text-start fw-bold mt-3">Tracks</h2>
-        {tracks.map((song) => (
-          <Col xs={4} key={song.id}>
-            <Card className="bg-transparent border-none">
-              <Card.Img variant="top" src={song.album.cover} />
-              <Card.Body>
-                <Link to={"/album/" + song.album.id}>
-                  <Card.Title className="text-truncate text-start text-white">{song.title}</Card.Title>
-                </Link>
-                <Link>
-                  <Card.Text className="text-truncate text-start text-white">{song.album.title}</Card.Text>
-                </Link>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-
       <Player />
     </Container>
   );

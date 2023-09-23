@@ -3,7 +3,7 @@ import { Container, Nav } from "react-bootstrap";
 const LinkComponent = () => {
   return (
     <Container className="mt-2">
-      <Nav className="d-flex justify-content-around">
+      <Nav className="d-flex justify-content-between">
         <Nav.Link className="text-secondary fw-bold">Trending</Nav.Link>
         <Nav.Link className="text-secondary fw-bold">Podcast</Nav.Link>
         <Nav.Link className="text-secondary fw-bold">Mood and Genres</Nav.Link>

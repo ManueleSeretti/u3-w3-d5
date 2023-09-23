@@ -36,27 +36,29 @@ const SearchPage = () => {
 
   return (
     <Container>
-      <LinkComponent />
-
-      <Row className="mb-5">
-        <h2 className="text-white text-start fw-bold mt-3">Result</h2>
-        {query.data.map((song) => (
-          <Col xs={4} key={song.id}>
-            <Card className="bg-transparent border-none">
-              <Card.Img variant="top" src={song.album.cover} />
-              <Card.Body>
-                <Link to={"/album/" + song.album.id}>
-                  <Card.Title className="text-truncate text-start text-white">{song.title}</Card.Title>
-                </Link>
-                <Link>
-                  <Card.Text className="text-truncate text-start text-white">{song.album.title}</Card.Text>
-                </Link>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+      <Row>
+        <Col xs={10} className="offset-1">
+          <LinkComponent />
+          <Row className="mb-5 gy-5 mt-5">
+            <h2 className="text-white text-start fw-bold mt-3">Result</h2>
+            {query.data.map((song) => (
+              <Col xs={3} key={song.id}>
+                <Card className="bg-transparent border-0">
+                  <Card.Img variant="top" src={song.album.cover} />
+                  <Card.Body>
+                    <Link to={"/album/" + song.album.id}>
+                      <Card.Title className="text-truncate text-start text-white">{song.title}</Card.Title>
+                    </Link>
+                    <Link>
+                      <Card.Text className="text-truncate text-start text-white">{song.album.title}</Card.Text>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Col>
       </Row>
-
       <Player />
     </Container>
   );

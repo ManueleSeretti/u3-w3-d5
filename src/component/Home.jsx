@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import LinkComponent from "./LinkComponent";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -72,10 +72,15 @@ const Home = () => {
 
   return (
     <Container>
-      <LinkComponent />
-      <ListAlbums title="Rock Classic" />
-      <ListAlbums title="Pop Culture" />
-      <ListAlbums title="#HipHop" />
+      <Row>
+        <Col xs={10} className="offset-1">
+          <LinkComponent />
+          <ListAlbums title="Rock Classic" />
+          <ListAlbums title="Pop Culture" />
+          <ListAlbums title="#HipHop" />
+        </Col>
+      </Row>
+
       <Player />
     </Container>
   );
