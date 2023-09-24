@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
-import { encryptTransform } from "redux-persist-transform-encrypt";
+import storage from "redux-persist/lib/storage";
 import homeReducer from "../reducer/homeReducer";
 import albumReducer from "../reducer/AlbumReducer";
 import artistReducer from "../reducer/ArtistReducer";
 import searchReducer from "../reducer/SearchReducer";
+import audioReducer from "../reducer/AudioReducer";
 
 const persistConfig = {
   key: "root",
@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
   album: albumReducer,
   artist: artistReducer,
   search: searchReducer,
+  audio: audioReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

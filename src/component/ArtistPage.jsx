@@ -33,7 +33,7 @@ const ArtistPage = () => {
         "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
       },
     });
-    const data = await resp.json();
+    let data = await resp.json();
     setTracks(data.data);
   };
 

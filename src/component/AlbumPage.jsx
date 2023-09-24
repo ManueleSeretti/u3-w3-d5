@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setSingleAlbum } from "../redux/action";
+import { setAudio, setSingleAlbum } from "../redux/action";
 import LinkComponent from "./LinkComponent";
 import Player from "./Player";
 
@@ -33,21 +33,31 @@ const AlbumsPage = () => {
     <Container>
       <LinkComponent />
       <Row className="mt-5">
-        <Col xs={4}>
-          <img src={singleAlbum.cover_medium} alt="cover" />
-          <h2 className="text-white">{singleAlbum.title}</h2>
-          <p className="text-white"> {singleAlbum.artist.name}</p>
-          <Button className="btn-play" variant="success">
-            Play
-          </Button>
-        </Col>
-        <Col xs={8}>
-          {singleAlbum.tracks.data.map((track) => (
-            <div className="d-flex justify-content-between align-items-center mt-3">
-              <p className="text-white m-0">{track.title}</p>
-              <span className="text-white">{(track.duration / 60).toFixed(2)}</span>
-            </div>
-          ))}
+        <Col xs={9} className="offset-1">
+          <Row>
+            <Col xs={4}>
+              <img className="mt-3" src={singleAlbum.cover_medium} alt="cover" />
+              <h2 className="text-white">{singleAlbum.title}</h2>
+              <p className="text-white"> {singleAlbum.artist.name}</p>
+              <Button className="btn-play" variant="success">
+                Play
+              </Button>
+            </Col>
+            <Col xs={8}>
+              {singleAlbum.tracks.data.map((track) => (
+                <div
+                  onClick={() => dispatch(setAudio(track))}
+                  className="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <p className="text-white m-0">
+                    <i class="bi bi-heart mx-3"></i>
+                    {track.title}
+                  </p>
+                  <span className="text-white">{(track.duration / 60).toFixed(2)}</span>
+                </div>
+              ))}
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Player />
