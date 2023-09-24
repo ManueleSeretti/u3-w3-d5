@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setAudio, setCounter, setSingleAlbum } from "../redux/action";
+import { setAudio, setSingleAlbum } from "../redux/action";
 import LinkComponent from "./LinkComponent";
 import Player from "./Player";
+import SingleTrack from "./SingleTrack";
 
 const AlbumsPage = () => {
   const params = useParams();
@@ -27,6 +28,7 @@ const AlbumsPage = () => {
 
   useEffect(() => {
     fetchArtist();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -39,23 +41,14 @@ const AlbumsPage = () => {
               <Col xs={4}>
                 <img className="mt-3" src={singleAlbum.cover_medium} alt="cover" />
                 <h2 className="text-white">{singleAlbum.title}</h2>
-                <p className="text-white"> {singleAlbum.artist.name}</p>
+                <p className="text-white"> {singleAlbum?.artist?.name}</p>
                 <Button className="btn-play" variant="success">
                   Play
                 </Button>
               </Col>
               <Col xs={8}>
-                {singleAlbum.tracks.data.map((track) => (
-                  <div
-                    onClick={() => dispatch(setAudio(track))}
-                    className="d-flex justify-content-between align-items-center mt-3"
-                  >
-                    <p className="text-white m-0">
-                      <i class="bi bi-heart mx-3"></i>
-                      {track.title}
-                    </p>
-                    <span className="text-white">{(track.duration / 60).toFixed(2)}</span>
-                  </div>
+                {singleAlbum?.tracks?.data.map((track) => (
+                  <SingleTrack track={track} />
                 ))}
               </Col>
             </Row>

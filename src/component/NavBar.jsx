@@ -29,12 +29,12 @@ const NavBar = () => {
           </Link>
           <Link to={"/"} className="text-decoration-none">
             <Nav.Link className="text-secondary text-start mt-5" href="#home">
-              <i class="bi bi-house-fill text-secondary fs-4 mx-2"></i>
+              <i className="bi bi-house-fill text-secondary fs-4 mx-2"></i>
               Home
             </Nav.Link>
           </Link>
           <Nav.Link className="text-secondary text-start">
-            <i class="bi bi-book-fill text-secondary fs-4 mx-2"></i>
+            <i className="bi bi-book-fill text-secondary fs-4 mx-2"></i>
             Your Library
           </Nav.Link>
           <InputGroup className="mt-3">
