@@ -68,12 +68,13 @@ const Home = () => {
 
   useEffect(() => {
     artistGenerator();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Container>
       <Row>
-        <Col xs={10} className="offset-1">
+        <Col xs={12} lg={10} className="offset-1">
           <LinkComponent />
           <ListAlbums title="Rock Classic" />
           <ListAlbums title="Pop Culture" />

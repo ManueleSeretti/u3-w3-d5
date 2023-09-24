@@ -1,4 +1,4 @@
-import { ADD_TO_LIST, DEL_TO_LIST, SET_SINGLE_ALBUM } from "../action";
+import { ADD_TO_LIST, DEL_TO_LIST } from "../action";
 
 const initialState = {
   content: [],

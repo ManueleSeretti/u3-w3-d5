@@ -26,6 +26,7 @@ const Player = () => {
       setProgress((counter * 100) / 60);
       //collego lo scorrere del tempo alla barra del progresso
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter]);
   // cosa fare ogni volta che cambia isPlay
   useEffect(() => {

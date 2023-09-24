@@ -40,12 +40,13 @@ const ArtistPage = () => {
   useEffect(() => {
     fetchArtist();
     fetchTracks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Container>
       <Row>
-        <Col xs={10} className="offset-1">
+        <Col xs={12} lg={10} className="offset-lg-1">
           <LinkComponent />
           <Row className="justify-content-center mt-5">
             <Col xs={5}>

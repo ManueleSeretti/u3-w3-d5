@@ -17,7 +17,7 @@ const ListAlbums = (props) => {
     <Container className="mt-3  mb-5 ">
       <h2 className=" text-start text-white ">{props.title}</h2>
       <Row>
-        {albums.map((album, i) => (
+        {albums.map((album) => (
           <Col xs={3} key={album.id}>
             <Card className="bg-transparent border-0 ">
               <Card.Img variant="top" src={album.album.cover} />

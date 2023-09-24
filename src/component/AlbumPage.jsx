@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setAudio, setSingleAlbum } from "../redux/action";
+import { setSingleAlbum } from "../redux/action";
 import LinkComponent from "./LinkComponent";
 import Player from "./Player";
 import SingleTrack from "./SingleTrack";
@@ -35,7 +35,7 @@ const AlbumsPage = () => {
     <Container>
       <LinkComponent />
       <Row className="mt-5">
-        <Col xs={9} className="offset-1">
+        <Col xs={12} lg={10} className="offset-lg-1">
           {singleAlbum ? (
             <Row>
               <Col xs={4}>

@@ -16,10 +16,10 @@ function App() {
       <BrowserRouter>
         <Container fluid className=" p-0 m-0">
           <Row className="m-0">
-            <Col xs={2} style={{ zIndex: "1" }} className="bg-black p-0 m-0">
+            <Col lg={3} xl={2} style={{ zIndex: "1" }} className="d-none d-lg-block bg-black p-0 m-0">
               <NavBar />
             </Col>
-            <Col xs={10} className="sfondo container-rigth m-0">
+            <Col xs={12} lg={9} xl={10} className="sfondo container-rigth m-0">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/album/:id" element={<AlbumsPage />} />
