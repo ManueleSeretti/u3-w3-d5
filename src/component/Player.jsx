@@ -23,7 +23,7 @@ const Player = () => {
       finishedAudio();
       //controllo se l'audio è arrivato alla fine e resetto il counter e isPlay=false
     } else {
-      setProgress((counter * 100) / 60);
+      setProgress((counter * 100) / 30);
       //collego lo scorrere del tempo alla barra del progresso
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
