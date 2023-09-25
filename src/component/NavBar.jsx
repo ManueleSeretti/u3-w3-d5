@@ -11,6 +11,7 @@ const NavBar = () => {
 
   const handleQuery = () => {
     navigate("/search/" + query);
+    setQuery("");
   };
 
   return (
